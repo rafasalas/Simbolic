@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.rafasalas.simbolic">
+
+    <uses-feature
+        android:name="android.service.wallpaper"
+        android:required="false" />
+
+    <application
+        android:name=".global"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Simbolic"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".SplashScreenActivity"
+            android:label="Simbolic">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="Simbolic" />
+
+        <service
+            android:name=".wallpaper"
+            android:enabled="true"
+            android:exported="true"
+            android:label="Simbolic"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/wallpaper" />
+        </service>
+    </application>
+
+</manifest>
