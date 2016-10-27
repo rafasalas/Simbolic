@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
         // Hide title bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+        addlistenerOnButton();
     }
 
     public void addlistenerOnButton(){

@@ -18,7 +18,7 @@ import android.view.SurfaceHolder;
 
 import java.util.Random;
 
-//import processing.core.PVector;
+import processing.core.PVector;
 
 public class wallpaper extends WallpaperService {
     private Context context;
@@ -57,17 +57,15 @@ public class wallpaper extends WallpaperService {
         private float mSensorZ;
 
         //private int opcion;
-        //Variables acelerometro
 
-
-        //finger
+        private expositor expo;
 
        // final global dataglobal = (global) getApplicationContext();
         //finger
         private wallpaperEngine() {
              context= getApplicationContext();
             //final global dataglobal = (global) getApplicationContext();
-
+            expo=new expositor(context);
             //Log.i("   en wallpaper","rojo "+rojo);
             //Log.i("butt", "hallegado " + opcion);
 
@@ -128,7 +126,7 @@ public class wallpaper extends WallpaperService {
 
             this.holder = surfaceHolder;
             //cuidadin
-            registerSensors();
+           registerSensors();
             //cuidadin
 
 
@@ -167,7 +165,7 @@ public class wallpaper extends WallpaperService {
 
                 //TEMPORIZADOR DE DISPARO
 
-                //lienzotrabajo.draw(canvas, width, height,opcion);
+               expo.Draw(canvas, width, height);
                 canvas.restore();
                 holder.unlockCanvasAndPost(canvas);
 

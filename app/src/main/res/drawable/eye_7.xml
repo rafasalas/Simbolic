@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="376dp"
+    android:height="341dp"
+    android:viewportWidth="376"
+    android:viewportHeight="341">
+
+    <path
+        android:fillColor="#000000"
+        android:strokeColor="#000000"
+        android:strokeWidth="0.4038"
+        android:strokeMiterLimit="10"
+        android:pathData="M200.651,144.212
+c5.977-8.71,14.903-13.58,26.563-13.449c-4.851,0.527-10.977,12.056-20.746,13.472c12.229,0,17.014-13.765,23.988-13.765
+C222.516,127.863,205.287,133.37,200.651,144.212" />
+    <path
+        android:fillColor="#000000"
+        android:strokeColor="#000000"
+        android:strokeWidth="0.4038"
+        android:strokeMiterLimit="10"
+        android:pathData="M207.831,136.051
+c-0.066,2.097,1.423,3.975,3.55,4.339c2.325,0.397,4.532-1.165,4.93-3.491c0.289-1.689-0.457-3.317-1.779-4.233
+M209.605,138.516
+c-0.742-0.127-1.24-0.831-1.113-1.572c0.127-0.742,0.831-1.24,1.572-1.113c0.742,0.127,1.24,0.831,1.113,1.572
+C211.05,138.145,210.346,138.643,209.605,138.516z" />
+    <path
+        android:fillColor="#000000"
+        android:strokeColor="#000000"
+        android:strokeWidth="0.4038"
+        android:strokeMiterLimit="10"
+        android:pathData="M175.349,144.212
+c-5.977-8.71-14.903-13.58-26.563-13.449c4.851,0.527,10.977,12.056,20.746,13.472c-12.229,0-17.014-13.765-23.988-13.765
+C153.484,127.863,170.713,133.37,175.349,144.212" />
+    <path
+        android:fillColor="#000000"
+        android:strokeColor="#000000"
+        android:strokeWidth="0.4038"
+        android:strokeMiterLimit="10"
+        android:pathData="M161.468,132.666
+c-1.321,0.916-2.068,2.543-1.779,4.233c0.397,2.325,2.605,3.888,4.93,3.491c2.127-0.364,3.616-2.241,3.55-4.339
+M160.019,135.219
+c-0.127-0.742,0.372-1.445,1.113-1.572c0.742-0.127,1.445,0.372,1.572,1.113c0.127,0.742-0.372,1.445-1.113,1.572
+C160.85,136.459,160.146,135.961,160.019,135.219z" />
+    <path
+        android:pathData="M 0 0 H 376 V 341 H 0 V 0 Z" />
+</vector>
