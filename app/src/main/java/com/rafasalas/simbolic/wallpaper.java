@@ -26,6 +26,7 @@ public class wallpaper extends WallpaperService {
     private boolean muelle, resistencia;
     private int rojo, verde, azul;
     private String tipocolor;
+    private  PVector gravedad;
     //private Intent intent;
 
 
@@ -76,7 +77,7 @@ public class wallpaper extends WallpaperService {
 
             int width = getApplicationContext().getResources().getDisplayMetrics().widthPixels;
             int height = getApplicationContext().getResources().getDisplayMetrics().heightPixels;
-
+            gravedad=new PVector(0,0);
 
 
             handler = new Handler();
@@ -101,9 +102,9 @@ public class wallpaper extends WallpaperService {
             mSensorY = event.values[1];
             mSensorZ = event.values[2];
             if (mSensorZ>10){mSensorZ=10;}
-            //gravedad.set(-mSensorX,mSensorY);
-            //gravedad.normalize();
-            //gravedad.mult((10-mSensorZ)*70);
+            gravedad.set(-mSensorX,mSensorY);
+            gravedad.normalize();
+            gravedad.mult((10-mSensorZ)*5);
 
 
             //Log.d("sensor", "X: " + mSensorX + ", Y: " + mSensorY + ", Z: " + mSensorZ);
@@ -165,7 +166,7 @@ public class wallpaper extends WallpaperService {
 
                 //TEMPORIZADOR DE DISPARO
 
-               expo.Draw(canvas, width, height);
+               expo.Draw(canvas, width, height, gravedad);
                 canvas.restore();
                 holder.unlockCanvasAndPost(canvas);
 

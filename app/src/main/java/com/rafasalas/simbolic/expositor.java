@@ -77,7 +77,7 @@ public class expositor  {
          g=rnd.nextInt(255);
          b=rnd.nextInt(255);
         Color color = new Color();
-        gravedad=new PVector(0,0);
+
 
     }
     //acelerometro
@@ -93,7 +93,7 @@ public class expositor  {
 
 
 
-    protected void Draw(Canvas canvas,int w, int h){
+    protected void Draw(Canvas canvas,int w, int h, PVector peso){
         Paint fondopaint;
         fondopaint=new Paint();
         Random rnd=new Random();
@@ -121,7 +121,7 @@ public class expositor  {
         if (contador>intervalo-transicion){opacidad=opacidad-incremento;}
 
 
-        Cara1.resize(width, height,0.75);
+        Cara1.resize(width, height,0.75,.125,.5);
         Globo.resize(width,height,.45,.45,.15);
         Mensaje.resize(width, height,.15,.60,.25
         );
@@ -135,7 +135,7 @@ public class expositor  {
         Globo.alfa(opacidad);
 
         canvas.drawPaint(fondopaint);
-        fondo.acelerar(gravedad);
+        fondo.acelerar(peso);
         fondo.alfa(100);
         fondo.mostrar_dibujo(canvas, width/85);
         Cara1.dibujar(canvas);

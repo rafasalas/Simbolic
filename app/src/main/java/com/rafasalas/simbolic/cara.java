@@ -27,23 +27,23 @@ public class cara {
         aro2=new vectordraw(context);
     }
 
-    public void resize (int width, int height, double scale){
+    public void resize (int width, int height, double scale, double Xini, double Yini){
 
-        pelo.resize(width, height,scale);
+        pelo.resize(width, height,scale,Xini, Yini);
 
-        cejas.resize(width, height,scale);
+        cejas.resize(width, height,scale,Xini, Yini);
 
-        ojos.resize(width, height,scale);
+        ojos.resize(width, height,scale,Xini, Yini);
 
-        nariz.resize(width, height,scale);
+        nariz.resize(width, height,scale,Xini, Yini);
 
-        boca.resize(width, height,scale);
+        boca.resize(width, height,scale,Xini, Yini);
 
-        mandibula.resize(width, height,scale);
-        mano_izq.resize(width, height,scale);
-       mano_der.resize(width, height,scale);
-      aro.resize(width, height,scale);
-        aro2.resize(width, height,scale);
+        mandibula.resize(width, height,scale,Xini, Yini);
+        mano_izq.resize(width, height,scale,Xini, Yini);
+       mano_der.resize(width, height,scale,Xini, Yini);
+      aro.resize(width, height,scale,Xini, Yini);
+        aro2.resize(width, height,scale,Xini, Yini);
 
     }
 
