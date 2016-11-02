@@ -26,9 +26,18 @@ public class expositor  {
             //Color temporal
             int r,g,b;
             Color color;
+
+    float hcomp, inc;
+
+
             //Color Temporal
             red fondo;
            int width, height;
+            float[] hsv, hsvoscuro, hsv2;
+
+
+
+
     //Variables acelerometro
 
     private PVector gravedad;
@@ -38,7 +47,12 @@ public class expositor  {
 
 
         //cuidadin
-       //registerSensors();
+
+        color=new Color();
+       color.rgb(r,g,b);
+        hsv = new float[3];
+        hsvoscuro=new float[3];
+        hsv2=new float[3];
         //cuidadin
 
         int width =context.getResources().getDisplayMetrics().widthPixels;
@@ -52,7 +66,7 @@ public class expositor  {
       // fondo=new red(-200,-100,10,10,180,150,true, 100,context);
         fondo=new red(-width/5,-height/10,10,10,width/5,height/10,true, height/10,context);
         //fondo.carga_dibujo ("geo", "drawable", "com.rafasalas.simbolic");
-        fondo.rozamiento((float)0.009);
+        fondo.rozamiento((float)0.015);
         fondo.muelle((float)0.01);
         //fondo.cuerda(50);
         fondo.invertir_masa();
@@ -76,8 +90,8 @@ public class expositor  {
         r=rnd.nextInt(255);
          g=rnd.nextInt(255);
          b=rnd.nextInt(255);
-        Color color = new Color();
-
+        //Color color = new Color();
+        generador_color();
 
     }
     //acelerometro
@@ -109,9 +123,7 @@ public class expositor  {
             fondo.carga_dibujo (mensaje, "drawable", "com.rafasalas.simbolic");
             opacidad=0;
             // Color (Temporal)
-            r=rnd.nextInt(255);
-            g=rnd.nextInt(255);
-            b=rnd.nextInt(255);
+            generador_color();
             // Color Temporal
 
 
@@ -127,7 +139,11 @@ public class expositor  {
         );
 
        // canvas.drawColor(0xFFFFFFFF);
-        fondopaint.setShader(new RadialGradient(width / 2, height / 2, width , 0xff5881c0,0xff343a7e, Shader.TileMode.MIRROR));
+        int colorclaro=Color.HSVToColor(255,hsv);
+        int coloroscuro=Color.HSVToColor(255,hsvoscuro);
+        hsv[0]=hsv[0]-inc;
+        hsvoscuro[0]=hsvoscuro[0]-inc;
+        fondopaint.setShader(new RadialGradient(width / 2, height / 2, width , colorclaro,coloroscuro, Shader.TileMode.MIRROR));
         //fondopaint.setShader(new RadialGradient(width / 2, height / 2, width , 0xffffffff, color.argb(opacidad,r,g,b), Shader.TileMode.MIRROR));
         Cara1.alfa(opacidad);
 
@@ -149,6 +165,24 @@ public class expositor  {
    protected void update(){
 
    }
+    void generador_color(){
+        Random rnd=new Random();
+        r=rnd.nextInt(255);
+        g=rnd.nextInt(255);
+        b=rnd.nextInt(255);
+        color.rgb(r,g,b);
+        color.RGBToHSV(r,g,b,hsv);
+        if (hsv[0]>180) {hcomp=hsv[0]-180;} else {hcomp=180-hsv[0];}
+        if (hsv[2]<80){hsv[2]=80;}
+        hsv2[0]=hcomp;
+        hsv2[1]=hsv[1];
+        hsv2[2]=hsv[2];
+        hsvoscuro[0]=hsv[0];
+        hsvoscuro[1]=hsv[1];
+        hsvoscuro[2]=hsv[2]-60;
 
+        inc=(float)(hsv[0]-hcomp)/intervalo;
+
+    }
 
 }
