@@ -143,8 +143,10 @@ public class expositor  {
         int coloroscuro=Color.HSVToColor(255,hsvoscuro);
         hsv[0]=hsv[0]-inc;
         hsvoscuro[0]=hsvoscuro[0]-inc;
-        fondopaint.setShader(new RadialGradient(width / 2, height / 2, width , colorclaro,coloroscuro, Shader.TileMode.MIRROR));
+        hsv2[0]=hsv2[0]+inc;
+        fondopaint.setShader(new RadialGradient(width / 2, height / 2, 2, colorclaro,coloroscuro, Shader.TileMode.MIRROR));
         //fondopaint.setShader(new RadialGradient(width / 2, height / 2, width , 0xffffffff, color.argb(opacidad,r,g,b), Shader.TileMode.MIRROR));
+       Cara1.colorizearo(hsv2);
         Cara1.alfa(opacidad);
 
         //Cara1.colorize(opacidad, r,g,b);
@@ -167,19 +169,22 @@ public class expositor  {
    }
     void generador_color(){
         Random rnd=new Random();
-        r=rnd.nextInt(255);
-        g=rnd.nextInt(255);
-        b=rnd.nextInt(255);
-        color.rgb(r,g,b);
-        color.RGBToHSV(r,g,b,hsv);
+        //r=rnd.nextInt(255);
+        //g=rnd.nextInt(255);
+       //b=rnd.nextInt(255);
+       // color.rgb(r,g,b);
+       // color.RGBToHSV(r,g,b,hsv);
+        hsv[0]=(float)rnd.nextInt(360);
         if (hsv[0]>180) {hcomp=hsv[0]-180;} else {hcomp=180-hsv[0];}
-        if (hsv[2]<80){hsv[2]=80;}
+        //if (hsv[2]<80){hsv[2]=80;}
+        hsv[1]=85;
+        hsv[2]=60;
         hsv2[0]=hcomp;
         hsv2[1]=hsv[1];
         hsv2[2]=hsv[2];
         hsvoscuro[0]=hsv[0];
         hsvoscuro[1]=hsv[1];
-        hsvoscuro[2]=hsv[2]-60;
+        hsvoscuro[2]=15;
 
         inc=(float)(hsv[0]-hcomp)/intervalo;
 

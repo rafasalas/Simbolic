@@ -70,7 +70,7 @@ public class cara {
     }
 
     public void dibujar(Canvas canvas){
-        aro.colorize(255, 255,195,0);
+        //aro.colorize(255, 255,195,0);
         aro2.alfa(150);
         aro2.dibujar(canvas);
         mandibula.dibujar(canvas);
@@ -164,5 +164,18 @@ public class cara {
         b=Color.blue(outputColor);
         hsv[0]=hsv[0]-inc;
         aro.colorize(opacity, r,g,b);
+    }
+
+    public void colorizearo(float [] hsv){
+        // cuello.alfa(op);
+
+        int r,g,b;
+
+        r=Color.red(Color.HSVToColor(hsv));
+        g=Color.green(Color.HSVToColor(hsv));
+        b=Color.blue(Color.HSVToColor(hsv));
+
+
+        aro.colorize(255, r,g,b);
     }
 }
